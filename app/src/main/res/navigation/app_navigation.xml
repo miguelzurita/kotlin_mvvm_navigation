@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/addFragment">
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.miguelzurita.demo.AddFragment"
+        android:label="Add"
+        tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.miguelzurita.demo.ListFragment"
+        android:label="List"
+        tools:layout="@layout/fragment_list" />
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.miguelzurita.demo.FilterFragment"
+        android:label="Filter"
+        tools:layout="@layout/fragment_filter" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.miguelzurita.demo.WeatherFragment"
+        android:label="Weather"
+        tools:layout="@layout/fragment_weather" />
+</navigation>
