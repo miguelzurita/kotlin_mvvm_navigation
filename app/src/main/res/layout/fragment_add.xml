@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="viewmodel"
+            type="com.miguelzurita.demo.viewmodel.AddViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,16 +16,57 @@
         android:layout_height="match_parent"
         tools:context=".AddFragment">
 
-        <TextView
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:text="@={viewmodel.name}"
+            app:layout_constraintBottom_toTopOf="@+id/et_date_admission"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/et_date_admission"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Date of admission"
+            android:text="@={viewmodel.dateOfAdmission}"
+            app:layout_constraintBottom_toTopOf="@+id/et_mac_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_name">
+
+        </EditText>
+
+
+        <EditText
+            android:id="@+id/et_mac_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="MAC Address"
+            android:text="@={viewmodel.macAddress}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_date_admission">
+
+        </EditText>
+
+
+        <Button
+            android:id="@+id/btn_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ADD"
-            android:textSize="50sp"
-            android:textStyle="bold"
+            android:onClick="@{()->viewmodel.saveDevice()}"
+            android:text="Add"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_mac_address" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
