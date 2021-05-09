@@ -1,0 +1,46 @@
+// 20210508224614
+// http://api.openweathermap.org/data/2.5/weather?q=Republic%20of%20Malta,%20MT&units=metric&appid=db931e927c64b513f44e93e89627dbb7
+
+{
+  "coord": {
+    "lon": 14.4333,
+    "lat": 35.9167
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 15.5,
+    "feels_like": 15.56,
+    "temp_min": 15,
+    "temp_max": 16.11,
+    "pressure": 1017,
+    "humidity": 94
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 1.03,
+    "deg": 0
+  },
+  "clouds": {
+    "all": 0
+  },
+  "dt": 1620524773,
+  "sys": {
+    "type": 1,
+    "id": 6861,
+    "country": "MT",
+    "sunrise": 1620532909,
+    "sunset": 1620582938
+  },
+  "timezone": 7200,
+  "id": 2562770,
+  "name": "Malta",
+  "cod": 200
+}
