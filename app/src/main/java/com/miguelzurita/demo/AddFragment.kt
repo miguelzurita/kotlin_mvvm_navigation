@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.Observable
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.miguelzurita.demo.databinding.FragmentAddBinding
@@ -21,13 +23,21 @@ class AddFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentAddBinding.inflate(inflater)
-//        binding = DataBindingUtil.setContentView(activity, R.layout.fragment_add)
         viewmodel = ViewModelProviders.of(this).get(AddViewModel::class.java)
         binding.viewmodel = viewmodel
 
+        initializeObserver()
         configureUI()
 
         return binding.root
+    }
+
+    private fun initializeObserver() {
+        viewmodel.saveLiveData.observe(this, Observer {
+            if (it) {
+//                show toast success on save
+            }
+        })
     }
 
     private fun configureUI() {

@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class Device(
     @PrimaryKey(autoGenerate = true)
     val id: Int?,
-    val macAddress: String?,
     val name: String?,
+    val macAddress: String?,
     val dateOfAdmission: String?
 )

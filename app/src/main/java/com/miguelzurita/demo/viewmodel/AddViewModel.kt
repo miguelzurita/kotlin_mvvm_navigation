@@ -15,16 +15,23 @@ class AddViewModel(
     var name = ObservableField<String>()
     var macAddress = ObservableField<String>()
     var dateOfAdmission = ObservableField<String>()
-    private val saveLiveData = MutableLiveData<Boolean>()
+    val saveLiveData = MutableLiveData<Boolean>()
 
     fun saveDevice() {
         updateDevice()
         return if (canSaveDevice()) {
             repository.saveDevice(device)
+            clearForm()
             saveLiveData.postValue(true)
         } else {
             saveLiveData.postValue(false)
         }
+    }
+
+    private fun clearForm() {
+        name.set("")
+        macAddress.set("")
+        dateOfAdmission.set("")
     }
 
     lateinit var device: Device

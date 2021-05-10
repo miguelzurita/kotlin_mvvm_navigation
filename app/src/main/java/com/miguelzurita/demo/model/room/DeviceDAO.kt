@@ -12,6 +12,6 @@ interface DeviceDAO {
     @Delete
     fun clearDevices(vararg device: Device)
 
-    @Query("SELECT * FROM devices ORDER BY name ASC")
+    @Query("SELECT * FROM devices ORDER BY id DESC")
     fun getAllDevices(): LiveData<List<Device>>
 }
