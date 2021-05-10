@@ -11,8 +11,9 @@ import com.miguelzurita.demo.model.Device
 /**
  * Adaptador de los albums
  */
-class RecyclerAdapter(private val items: MutableList<Device>) :
-    RecyclerView.Adapter<RecyclerAdapter.DeviceHolder>() {
+class RecyclerAdapter(private val items: MutableList<Device>) : RecyclerView.Adapter<RecyclerAdapter.DeviceHolder>() {
+
+    private var itemsListFull: ArrayList<Device> = ArrayList(items)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DeviceHolder {
         return DeviceHolder(
@@ -29,6 +30,7 @@ class RecyclerAdapter(private val items: MutableList<Device>) :
     fun updateDevices(devices: List<Device>) {
         items.clear()
         items.addAll(devices)
+        itemsListFull.addAll(devices)
         notifyDataSetChanged()
     }
 
@@ -43,6 +45,30 @@ class RecyclerAdapter(private val items: MutableList<Device>) :
             this.device = device
             binding.tvName.text = device.name
             binding.tvMacAddress.text = device.macAddress
+        }
+    }
+
+    fun getFilter(): Filter? = object : Filter() {
+        override fun performFiltering(constraint: CharSequence?): FilterResults? {
+            val filteredList: MutableList<Device> = ArrayList()
+            if (constraint == null || constraint.isEmpty()) {
+                filteredList.addAll(itemsListFull)
+            } else {
+                for (item in itemsListFull) {
+                    if (item.macAddress != null && item.macAddress.toLowerCase().contains(constraint.toString().toLowerCase().trim())) {
+                        filteredList.add(item)
+                    }
+                }
+            }
+            val results = FilterResults()
+            results.values = filteredList
+            return results
+        }
+
+        override fun publishResults(constraint: CharSequence?, results: FilterResults) {
+            items.clear()
+            items.addAll(results.values as ArrayList<Device>)
+            notifyDataSetChanged()
         }
     }
 }

@@ -15,12 +15,12 @@ import com.miguelzurita.demo.viewmodel.ListViewModel
 /**
  * List all devices
  */
-class ListFragment : Fragment() {
+open class ListFragment : Fragment() {
 
-    private lateinit var viewmodel: ListViewModel
-    lateinit var binding: FragmentListBinding
+    lateinit var viewmodel: ListViewModel
+    private lateinit var binding: FragmentListBinding
 
-    private val adapter = RecyclerAdapter(mutableListOf())
+    protected val adapter = RecyclerAdapter(mutableListOf())
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentListBinding.inflate(inflater)
@@ -35,12 +35,11 @@ class ListFragment : Fragment() {
         configureLiveDataObservers()
     }
 
-
-    private fun configureUI() {
+    protected open fun configureUI() {
         binding.rvDevices.adapter = adapter
     }
 
-    private fun configureLiveDataObservers() {
+    protected fun configureLiveDataObservers() {
         viewmodel.getAllDevicesLiveData().observe(this, Observer { devices ->
             devices?.let {
                 adapter.updateDevices(devices)
