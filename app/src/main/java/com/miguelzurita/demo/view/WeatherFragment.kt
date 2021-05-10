@@ -1,4 +1,4 @@
-package com.miguelzurita.demo
+package com.miguelzurita.demo.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.miguelzurita.demo.databinding.FragmentWeatherBinding
-import com.miguelzurita.demo.viewmodel.AddViewModel
 import com.miguelzurita.demo.viewmodel.WeatherViewModel
 
 /**

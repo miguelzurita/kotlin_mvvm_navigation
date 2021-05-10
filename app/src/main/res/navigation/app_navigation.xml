@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.miguelzurita.demo.AddFragment"
+        android:name="com.miguelzurita.demo.view.AddFragment"
         android:label="Add"
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.miguelzurita.demo.ListFragment"
+        android:name="com.miguelzurita.demo.view.ListFragment"
         android:label="List"
         tools:layout="@layout/fragment_list" />
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.miguelzurita.demo.FilterFragment"
+        android:name="com.miguelzurita.demo.view.FilterFragment"
         android:label="Filter"
         tools:layout="@layout/fragment_filter" />
     <fragment
         android:id="@+id/weatherFragment"
-        android:name="com.miguelzurita.demo.WeatherFragment"
+        android:name="com.miguelzurita.demo.view.WeatherFragment"
         android:label="Weather"
         tools:layout="@layout/fragment_weather" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.miguelzurita.demo
+package com.miguelzurita.demo.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

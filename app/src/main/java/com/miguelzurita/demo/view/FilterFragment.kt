@@ -1,4 +1,4 @@
-package com.miguelzurita.demo
+package com.miguelzurita.demo.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.lifecycle.ViewModelProviders
+import com.miguelzurita.demo.Constants
 import com.miguelzurita.demo.databinding.FragmentFilterBinding
 import com.miguelzurita.demo.viewmodel.ListViewModel
 

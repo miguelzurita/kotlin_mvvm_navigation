@@ -1,4 +1,4 @@
-package com.miguelzurita.demo
+package com.miguelzurita.demo.view
 
 import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.miguelzurita.demo.R
 import com.miguelzurita.demo.databinding.FragmentAddBinding
 import com.miguelzurita.demo.viewmodel.AddViewModel
 
