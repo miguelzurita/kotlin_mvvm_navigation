@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.miguelzurita.demo.databinding.FragmentListBinding
-import com.miguelzurita.demo.model.Device
 import com.miguelzurita.demo.viewmodel.ListViewModel
 
 /**

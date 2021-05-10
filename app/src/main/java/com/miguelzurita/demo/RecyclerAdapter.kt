@@ -9,7 +9,7 @@ import com.miguelzurita.demo.model.Device
 
 
 /**
- * Adaptador de los albums
+ * Device adapter
  */
 class RecyclerAdapter(private val items: MutableList<Device>) : RecyclerView.Adapter<RecyclerAdapter.DeviceHolder>() {
 
@@ -39,7 +39,7 @@ class RecyclerAdapter(private val items: MutableList<Device>) : RecyclerView.Ada
         private var device: Device? = null
 
         /**
-         * Carga la informacion en el item
+         * Load date in the item
          */
         fun bind(device: Device) {
             this.device = device

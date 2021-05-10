@@ -1,20 +1,16 @@
 package com.miguelzurita.demo
 
 import android.os.Bundle
-import android.provider.SyncStateContract
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.miguelzurita.demo.databinding.FragmentFilterBinding
-import com.miguelzurita.demo.model.Device
 import com.miguelzurita.demo.viewmodel.ListViewModel
 
 /**
- * A simple [Fragment] subclass.
+ * List all devices filtered by mac address
  */
 class FilterFragment : ListFragment() {
 
