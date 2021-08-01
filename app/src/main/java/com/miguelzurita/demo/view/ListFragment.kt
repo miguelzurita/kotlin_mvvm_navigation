@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.perf.ktx.performance
+import com.google.firebase.perf.metrics.Trace
 import com.miguelzurita.demo.adapter.RecyclerAdapter
 import com.miguelzurita.demo.databinding.FragmentListBinding
 import com.miguelzurita.demo.viewmodel.ListViewModel
@@ -18,6 +21,8 @@ open class ListFragment : Fragment() {
 
     lateinit var viewmodel: ListViewModel
     private lateinit var binding: FragmentListBinding
+    private lateinit var myTrace: Trace
+
 
     protected val adapter = RecyclerAdapter(mutableListOf())
 
@@ -32,6 +37,9 @@ open class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         configureUI()
         configureLiveDataObservers()
+        //custom trace
+        myTrace = Firebase.performance.newTrace("load_local_devices")
+        myTrace.start()
     }
 
     protected open fun configureUI() {
@@ -39,9 +47,12 @@ open class ListFragment : Fragment() {
     }
 
     protected fun configureLiveDataObservers() {
+
         viewmodel.getAllDevicesLiveData().observe(this, Observer { devices ->
             devices?.let {
                 adapter.updateDevices(devices)
+                //trace time to load local devices
+                myTrace.stop()
             }
         })
     }

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.perf.metrics.AddTrace
 import com.miguelzurita.demo.R
 import com.miguelzurita.demo.databinding.FragmentAddBinding
 import com.miguelzurita.demo.viewmodel.AddViewModel
@@ -23,6 +24,7 @@ class AddFragment : Fragment() {
     private lateinit var viewmodel: AddViewModel
     lateinit var binding: FragmentAddBinding
 
+    @AddTrace(name = "AddFragment_onCreateView")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentAddBinding.inflate(inflater)
         viewmodel = ViewModelProviders.of(this).get(AddViewModel::class.java)
